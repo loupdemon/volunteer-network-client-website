@@ -2,11 +2,34 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Home from './components/Home/Home';
+import NotFound from './components/NotFound/NotFound';
+
 function App() {
   return (
-    <div className="App">
-      <h1>Volunteer-network is coming soon!</h1>
-    </div>
+    <Router>
+      <Switch>
+
+        <Route path="/home">
+          <Home></Home>
+        </Route>
+
+        <Route exact path="/">
+          <Home></Home>
+        </Route>
+
+        <Route exact path="*">
+          <NotFound></NotFound>
+        </Route>
+
+      </Switch>
+    </Router>
   );
 }
 
