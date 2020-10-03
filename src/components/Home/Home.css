@@ -1,0 +1,11 @@
+
+
+main{
+    background: linear-gradient(rgba(238, 232, 232, 0.815), rgba(238, 232, 232, 0.815)), url('../../images/home-header-bg.png');
+    /* background: url('../../images/home-header-bg.png'); */
+    height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}

@@ -1,10 +1,11 @@
 import React from 'react';
 import './Header.css';
+import logo from '../../logos/logo.png';
 
 const Header = () => {
     return (
 
-        <div>
+        <div className="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
                 {/* <a class="navbar-brand" href="#">Navbar</a> */}
 
@@ -22,22 +23,19 @@ const Header = () => {
                             {/* <a class="nav-link" href="/home">Home</a> */}
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="#">Donation</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/dentalService">Dental Service</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Review</a>
+                            <a class="nav-link" href="#">Events</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Blog</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact Us</a>
-                        </li>
 
                     </ul>
+                    <button type="button" class="btn btn-primary mr-2">Register</button>
+                    <br />
+                    <button type="button" class="btn btn-dark">Admin</button>
                 </div>
             </nav>
         </div>
