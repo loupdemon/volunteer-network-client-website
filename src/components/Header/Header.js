@@ -1,41 +1,43 @@
 import React from 'react';
 import './Header.css';
+import { Link } from 'react-router-dom';
 import logo from '../../logos/logo.png';
 
 const Header = () => {
     return (
 
         <div className="container">
-            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-                {/* <a class="navbar-brand" href="#">Navbar</a> */}
+            <nav className="navbar navbar-expand-lg navbar-light bg-transparent">
+                {/* <a className="navbar-brand" href="#">Navbar</a> */}
 
-                <a class="navbar-brand" href="/home">
+                <a className="navbar-brand" href="/home">
                     <img src={logo} alt="" />
                 </a>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
-                            {/* <a class="nav-link" href="/home">Home</a> */}
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav ml-auto">
+                        <li className="nav-item">
+                            <a className="nav-link" href="/home">Home <span className="sr-only">(current)</span></a>
+                            {/* <a className="nav-link" href="/home">Home</a> */}
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Donation</a>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">Donation</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Events</a>
+                        <li className="nav-item">
+                            {/* <Link to="/selectedEvent"><a className="nav-link" href="#">Events</a></Link> */}
+                            <a className="nav-link" href="/selectedEvent">Events</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Blog</a>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">Blog</a>
                         </li>
 
                     </ul>
-                    <button type="button" class="btn btn-primary mr-2">Register</button>
+                    <Link to="/eventRegistration"><button type="button" className="btn btn-primary mr-2">Register</button></Link>
                     <br />
-                    <button type="button" class="btn btn-dark">Admin</button>
+                    <Link to="/admin"><button type="button" className="btn btn-dark">Admin</button></Link>
                 </div>
             </nav>
         </div>

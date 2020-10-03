@@ -10,6 +10,11 @@ import {
 } from "react-router-dom";
 import Home from './components/Home/Home';
 import NotFound from './components/NotFound/NotFound';
+import EventRegistration from './components/EventRegistration/EventRegistration';
+import Login from './components/Login/Login';
+import SelectedEvent from './components/SelectedEvent/SelectedEvent';
+import Admin from './components/Admin/Admin';
+import AddEvent from './components/AddEvent/AddEvent';
 
 function App() {
   return (
@@ -18,6 +23,26 @@ function App() {
 
         <Route path="/home">
           <Home></Home>
+        </Route>
+
+        <Route path="/eventRegistration">
+          <EventRegistration />
+        </Route>
+
+        <Route path="/login">
+          <Login></Login>
+        </Route>
+
+        <Route path="/selectedEvent">
+          <SelectedEvent></SelectedEvent>
+        </Route>
+
+        <Route path="/admin">
+          <Admin></Admin>
+        </Route>
+
+        <Route path="/addEvent">
+          <AddEvent></AddEvent>
         </Route>
 
         <Route exact path="/">
