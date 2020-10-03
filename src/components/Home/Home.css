@@ -1,7 +1,7 @@
 
 
 main{
-    background: linear-gradient(rgba(238, 232, 232, 0.815), rgba(238, 232, 232, 0.815)), url('../../images/home-header-bg.png');
+    background: linear-gradient(rgba(255, 255, 255, 0.842), rgba(255, 255, 255, 0.959)), url('../../images/home-header-bg.png');
     /* background: url('../../images/home-header-bg.png'); */
     height: 100vh;
     background-size: cover;
