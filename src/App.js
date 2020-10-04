@@ -15,12 +15,18 @@ import Login from './components/Login/Login';
 import SelectedEvent from './components/SelectedEvent/SelectedEvent';
 import Admin from './components/Admin/Admin';
 import AddEvent from './components/AddEvent/AddEvent';
-import LoginForm from './components/LoginForm/LoginForm';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
+export const UserContext = createContext();
 
 function App() {
+  
+  const [loggedInUser, setLoggedInUser] = useState({});
 
   return (
+
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+      <p>Name: {loggedInUser.name} </p>
 
     <Router>
       <Switch>
@@ -29,17 +35,13 @@ function App() {
           <Home></Home>
         </Route>
 
-        <Route path="/eventRegistration/:_id">
+          <PrivateRoute path="/eventRegistration/:_id">
           <EventRegistration />
-        </Route>
+          </PrivateRoute>
 
         <Route path="/login">
           <Login></Login>
         </Route>
-
-        {/* <Route path="/loginForm">
-          <LoginForm></LoginForm>
-        </Route> */}
 
         <Route path="/selectedEvent">
           <SelectedEvent></SelectedEvent>
@@ -64,7 +66,7 @@ function App() {
       </Switch>
     </Router>
 
-
+    </UserContext.Provider >
   );
 }
 
