@@ -24,7 +24,7 @@ const Admin = () => {
                     <h3>Volunteer register list</h3>
 
                     <div className="bg-white p-5">
-                        <table class="table table-hover ">
+                        <table className="table table-hover ">
                             <thead>
                                 <tr>
                                     <th scope="col">Name</th>
@@ -52,7 +52,7 @@ const Admin = () => {
                                 </tr>
                                 <tr>
                                     <th scope="row">3</th>
-                                    <td colspan="2">Larry the Bird</td>
+                                    <td colSpan="2">Larry the Bird</td>
                                     <td>@twitter</td>
                                     <td><button className="btn btn-danger">Delete</button></td>
 

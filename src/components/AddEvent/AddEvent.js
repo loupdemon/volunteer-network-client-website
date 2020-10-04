@@ -3,23 +3,47 @@ import './AddEvent.css';
 import logo from '../../logos/logo.png';
 
 import allEvent from '../fakeData/allEvents';
+import { useForm } from 'react-hook-form';
 
 // insert event to mongodb database
-const handleAddEvent = () => {
-    fetch("http://localhost:5000/addEvent", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(allEvent[0])
+// const handleAddEvent = () => {
+//     fetch("http://localhost:5000/addEvent", {
+//         method: "POST",
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(allEvent[0])
 
-    })
-    console.log('event added!');
-}
+//     })
+//     console.log('event added!');
+// }
 
 
 const AddEvent = () => {
+
+    const { register, handleSubmit, watch, errors } = useForm();
+
+    const onSubmit = data => {
+        console.log(data);
+
+        // POST
+        fetch('http://localhost:5000/addEvent', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json;',
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => console.log('POST done'))
+    };
+
+    // console.log(watch("name"));
+
+
     return (
+
+
         <div className="container-fluid">
             <div className="row admin-navbar">
 
@@ -39,7 +63,7 @@ const AddEvent = () => {
                     <h3>Volunteer register list</h3>
 
                     <div className="bg-white p-5 " >
-                        <form action="">
+                        {/* <form action="">
                             <div className="row">
                                 <div className="col form-group">
                                     <label htmlFor="title">Event Title</label>
@@ -63,12 +87,27 @@ const AddEvent = () => {
                             <div className="row d-flex justify-content-end">
                                 <input onClick={() => handleAddEvent} type="submit" value="Submit" className="btn btn-primary " />
                             </div>
+                        </form> */}
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <div className="row">
+                                <div className="col form-group">
+                                    <label htmlFor="title">Event Title</label>
+                                    <input name="title" defaultValue="Event Title" className="form-control bg-light" ref={register({ required: true })} />
+                                </div>
+                            </div>
+                            {/* <div className="row d-flex justify-content-end">
+                                <input onClick={() => handleAddEvent} type="submit" value="Submit" className="btn btn-primary " />
+                            </div> */}
+                            <input type="submit" />
                         </form>
+
                     </div>
                 </div>
 
             </div>
         </div >
+
+
     );
 };
 
