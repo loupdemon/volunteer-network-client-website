@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './VolunteerEvents.css';
-// import allEvent from '../fakeData/allEvents';
+import allEvent from '../fakeData/allEvents';
 import { Link, useParams } from 'react-router-dom';
 
 const VolunteerEvents = () => {
@@ -11,10 +11,17 @@ const VolunteerEvents = () => {
     const [events, setEvents] = useState([])
 
     // load events data from API
+    // useEffect(() => {
+    //     fetch('https://still-sierra-69434.herokuapp.com/events')
+    //         .then(res => res.json())
+    //         .then(data => setEvents(data))
+    // }, [])
+
+    // load events data from fakeData
     useEffect(() => {
         fetch('http://localhost:5000/events')
             .then(res => res.json())
-            .then(data => setEvents(data))
+            .then(data => setEvents(allEvent))
     }, [])
 
     return (

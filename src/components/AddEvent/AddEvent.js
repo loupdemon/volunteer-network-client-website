@@ -5,7 +5,7 @@ import logo from '../../logos/logo.png';
 import allEvent from '../fakeData/allEvents';
 import { useForm } from 'react-hook-form';
 
-// insert event to mongodb database
+// insert single event from fakeData to mongodb database
 // const handleAddEvent = () => {
 //     fetch("http://localhost:5000/addEvent", {
 //         method: "POST",
@@ -15,7 +15,20 @@ import { useForm } from 'react-hook-form';
 //         body: JSON.stringify(allEvent[0])
 
 //     })
-//     console.log('event added!');
+//     console.log('single event added!');
+// }
+
+// insert bulk event from fakeData to mongodb database
+// const handleAddEvents = () => {
+//     fetch("http://localhost:5000/addEvents", {
+//         method: "POST",
+//         body: JSON.stringify(allEvent),
+//         headers: {
+//             'Content-Type': 'application/json'
+//         }
+
+//     })
+//     console.log('bulk event added!');
 // }
 
 
@@ -23,9 +36,8 @@ const AddEvent = () => {
 
     const { register, handleSubmit, watch, errors } = useForm();
 
-    const onSubmit = data => {
-        console.log(data);
-
+    const addNewEvent = data => {
+        console.log('add new event', data);
         // POST
         fetch('http://localhost:5000/addEvent', {
             method: 'POST',
@@ -35,14 +47,12 @@ const AddEvent = () => {
             body: JSON.stringify(data)
         })
             .then(res => res.json())
-            .then(data => console.log('POST done'))
+            .then(data => console.log('POST done From Admin Panel'))
     };
 
     // console.log(watch("name"));
 
-
     return (
-
 
         <div className="container-fluid">
             <div className="row admin-navbar">
@@ -56,18 +66,18 @@ const AddEvent = () => {
                         <li><a href="/admin">Volunteer register list</a></li>
                         <li><a href="/addEvent">Add event</a></li>
                     </ul>
-
+                  
                 </div>
 
                 <div className="col-md-9" style={{ height: '100vh', background: '#F4F7FC' }}>
                     <h3>Volunteer register list</h3>
 
-                    <div className="bg-white p-5 " >
-                        {/* <form action="">
+                    <div className="bg-white p-5 " onsubmit="return false">
+                        <form >
                             <div className="row">
                                 <div className="col form-group">
                                     <label htmlFor="title">Event Title</label>
-                                    <input type="text" id="title" className="form-control bg-light" placeholder="Event title" required />
+                                    <input type="text" id="title" name="title" className="form-control bg-light" placeholder="Event title" />
                                 </div>
                                 <div className="col form-group">
                                     <label htmlFor="date">Event Date</label>
@@ -85,10 +95,11 @@ const AddEvent = () => {
                                 </div>
                             </div>
                             <div className="row d-flex justify-content-end">
-                                <input onClick={() => handleAddEvent} type="submit" value="Submit" className="btn btn-primary " />
+                                <input onClick={() => addNewEvent} type="submit" value="Submit" className="btn btn-primary " />
                             </div>
-                        </form> */}
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                        </form>
+
+                        {/* <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="row">
                                 <div className="col form-group">
                                     <label htmlFor="title">Event Title</label>
@@ -97,9 +108,10 @@ const AddEvent = () => {
                             </div>
                             {/* <div className="row d-flex justify-content-end">
                                 <input onClick={() => handleAddEvent} type="submit" value="Submit" className="btn btn-primary " />
-                            </div> */}
+                            </div> *
                             <input type="submit" />
                         </form>
+                        */}
 
                     </div>
                 </div>
