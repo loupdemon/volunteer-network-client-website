@@ -10,7 +10,7 @@ export const event = [
         image: 'https://i.imgur.com/x0rhfaj.png'
     },
     {
-        name: 'Suffed Animal',
+        name: 'Stuffed Animal',
         image: 'https://i.imgur.com/KhehDq6.png'
     },
     {
