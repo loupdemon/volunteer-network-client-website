@@ -1,27 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import './VolunteerEvents.css';
-import allEvent from '../fakeData/allEvents';
+import fakeData from '../fakeData/fakeData';
 import { Link, useParams } from 'react-router-dom';
 
 const VolunteerEvents = () => {
 
     const { _id } = useParams();
 
-    // const event = allEvent;
-    const [events, setEvents] = useState([])
-
+    // const event = fakeData;
+    const [events, setEvents] = useState(fakeData)
+ 
     // load events data from API
+    // API working but API not get data from MongoDB, alternative why try fakeData 
     // useEffect(() => {
-    //     fetch('https://still-sierra-69434.herokuapp.com/events')
+    //     fetch('https://vast-anchorage-58744.herokuapp.com/allEvent')
     //         .then(res => res.json())
     //         .then(data => setEvents(data))
     // }, [])
 
     // load events data from fakeData
     useEffect(() => {
-        fetch('http://localhost:5000/events')
+        fetch('http://localhost:5000/allEvent')
             .then(res => res.json())
-            .then(data => setEvents(allEvent))
+            .then(data => setEvents(fakeData))
     }, [])
 
     return (

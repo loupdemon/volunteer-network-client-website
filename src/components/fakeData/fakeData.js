@@ -1,6 +1,6 @@
 
 
-export const event = [
+export const fakeData = [
     {
         name: 'Child Support',
         image: 'https://i.imgur.com/gZAH8P3.png'
@@ -88,4 +88,4 @@ export const event = [
 
 ];
 
-export default event;
+export default fakeData;

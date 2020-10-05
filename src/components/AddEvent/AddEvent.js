@@ -2,7 +2,7 @@ import React from 'react';
 import './AddEvent.css';
 import logo from '../../logos/logo.png';
 
-import allEvent from '../fakeData/allEvents';
+import fakeData from '../fakeData/fakeData';
 import { useForm } from 'react-hook-form';
 
 // insert single event from fakeData to mongodb database
@@ -12,7 +12,7 @@ import { useForm } from 'react-hook-form';
 //         headers: {
 //             'Content-Type': 'application/json'
 //         },
-//         body: JSON.stringify(allEvent[0])
+//         body: JSON.stringify(fakeData[0])
 
 //     })
 //     console.log('single event added!');
@@ -22,7 +22,7 @@ import { useForm } from 'react-hook-form';
 // const handleAddEvents = () => {
 //     fetch("http://localhost:5000/addEvents", {
 //         method: "POST",
-//         body: JSON.stringify(allEvent),
+//         body: JSON.stringify(fakeData),
 //         headers: {
 //             'Content-Type': 'application/json'
 //         }
