@@ -8,22 +8,21 @@ const VolunteerEvents = () => {
     const { _id } = useParams();
 
     // const event = fakeData;
-    const [events, setEvents] = useState(fakeData)
+    const [events, setEvents] = useState([])
  
     // load events data from API
-    // API working but API not get data from MongoDB, alternative why try fakeData 
-    // useEffect(() => {
-    //     fetch('https://vast-anchorage-58744.herokuapp.com/allEvent')
-    //         .then(res => res.json())
-    //         .then(data => setEvents(data))
-    // }, [])
+    useEffect(() => {
+        fetch('https://vast-anchorage-58744.herokuapp.com/allEvent')
+            .then(res => res.json())
+            .then(data => setEvents(data))
+    }, [])
 
     // load events data from fakeData
-    useEffect(() => {
-        fetch('http://localhost:5000/allEvent')
-            .then(res => res.json())
-            .then(data => setEvents(fakeData))
-    }, [])
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/allEvent')
+    //         .then(res => res.json())
+    //         .then(data => setEvents(fakeData))
+    // }, [])
 
     return (
         <div className="row">
