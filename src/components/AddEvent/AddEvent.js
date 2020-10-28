@@ -1,9 +1,14 @@
 import React from 'react';
 import './AddEvent.css';
 import logo from '../../logos/logo.png';
+// import addIcon from '../../logos/addIcon.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faList } from '@fortawesome/free-solid-svg-icons'
 
 import fakeData from '../fakeData/fakeData';
 import { useForm } from 'react-hook-form';
+
 
 // insert single event from fakeData to mongodb database
 // const handleAddEvent = () => {
@@ -62,15 +67,15 @@ const AddEvent = () => {
                         <img src={logo} alt="" />
                     </a>
 
-                    <ul className="dashboard-menu ">
-                        <li><a href="/admin">Volunteer register list</a></li>
-                        <li><a href="/addEvent">Add event</a></li>
+                    <ul className="dashboard-menu" style={{ listStyleType: 'none' }}>
+                        <li><FontAwesomeIcon icon={faList} />  <a href="/admin">Volunteer register list</a></li>
+                        <li><FontAwesomeIcon icon={faPlus} />  <a href="/addEvent">Add event</a></li>
                     </ul>
                   
                 </div>
 
                 <div className="col-md-9" style={{ height: '100vh', background: '#F4F7FC' }}>
-                    <h3>Volunteer register list</h3>
+                    <h3>Volunteer register list </h3>
 
                     <div className="bg-white p-5 " onsubmit="return false">
                         <form >
